@@ -27,6 +27,10 @@ android.api = 34
 # minSdk 23 is required by the project brief (Android 6.0+).
 android.minapi = 23
 android.ndk_api = 23
+# NDK r28c refuses to compile CPython for API 23 (preadv/pwritev are not declared
+# for that API level), so the build pins the NDK release python-for-android
+# supports for a minSdk 23 target.
+android.ndk = 25b
 android.archs = arm64-v8a, armeabi-v7a
 android.accept_sdk_license = True
 android.private_storage = True
