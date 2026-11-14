@@ -1,0 +1,6 @@
+# Runtime dependencies (desktop development / testing).
+# Buildozer uses the `requirements` line inside buildozer.spec.
+kivy==2.3.1
+kivymd==1.2.0
+arabic-reshaper==3.0.0
+python-bidi==0.6.6
