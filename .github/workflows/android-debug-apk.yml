@@ -1,7 +1,11 @@
 name: Android Debug APK
 
+# Manual runs from the Actions tab, plus an opt-in branch trigger so a build can
+# be started by pushing to `build` without the Actions dispatch API.
 on:
   workflow_dispatch:
+  push:
+    branches: [build]
 
 permissions:
   contents: read
