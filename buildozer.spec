@@ -26,10 +26,12 @@ fullscreen = 0
 android.api = 34
 # minSdk 23 is required by the project brief (Android 6.0+).
 android.minapi = 23
-android.ndk_api = 23
-# NDK r28c refuses to compile CPython for API 23 (preadv/pwritev are not declared
-# for that API level), so the build pins the NDK release python-for-android
-# supports for a minSdk 23 target.
+# bionic only declares preadv/pwritev from API 24, and CPython's remote_debugging
+# source needs them, so the NDK target is API 24 while the manifest keeps
+# minSdk 23 (the app still installs on Android 6.0).
+android.ndk_api = 24
+# NDK r28c ships clang 19 and breaks the python3 recipe; 25b is the release
+# python-for-android is tested with.
 android.ndk = 25b
 android.archs = arm64-v8a, armeabi-v7a
 android.accept_sdk_license = True
