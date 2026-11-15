@@ -22,6 +22,12 @@ version = 1.0.0
 # release: 0.6.x is a Rust extension that cannot be cross-built for Android here.
 requirements = python3==3.13.5,hostpython3==3.13.5,kivy==2.3.1,kivymd==1.2.0,arabic-reshaper==3.0.0,python-bidi==0.4.2
 
+# The p4a release on PyPI leaves a mixed pip inside its build venv and then
+# "pip install -U pip" fails with ImportError: open_rich_spinner. Commit d2ee8c5
+# (kivy/python-for-android#3360) clears the venv instead of self-upgrading pip.
+p4a.branch = develop
+p4a.commit = d2ee8c5
+
 orientation = portrait
 fullscreen = 0
 
@@ -50,8 +56,3 @@ android.permissions = android.permission.INTERNET,android.permission.POST_NOTIFI
 [buildozer]
 log_level = 2
 warn_on_root = 1
-# The p4a release on PyPI leaves a mixed pip inside its build venv and then
-# "pip install -U pip" fails with ImportError: open_rich_spinner. Commit d2ee8c5
-# (kivy/python-for-android#3360) clears the venv instead of self-upgrading pip.
-p4a.branch = develop
-p4a.commit = d2ee8c5
