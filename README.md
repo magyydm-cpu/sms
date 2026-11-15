@@ -167,9 +167,10 @@ buildozer -v android debug
 
 ### البناء عبر GitHub Actions
 
-يوجد Workflow يدوي باسم **Android Debug APK** في
+يوجد Workflow باسم **Android Debug APK** في
 `.github/workflows/android-debug-apk.yml`. شغّله من تبويب **Actions** ←
-**Android Debug APK** ← **Run workflow**.
+**Android Debug APK** ← **Run workflow**، أو ادفع إلى الفرع `build`
+(`git push origin HEAD:build`) ليبدأ البناء نفسه دون فتح الواجهة.
 
 * يثبّت Java 17 وPython 3.11 ومتطلبات Buildozer على `ubuntu-latest`.
 * يبني `buildozer -v android debug` ويحفظ السجل في `buildozer-build.log`.
@@ -177,7 +178,17 @@ buildozer -v android debug
   ويُرفع السجل أيضًا عند فشل البناء.
 * يخزّن `~/.buildozer` (SDK/NDK) مؤقتًا لتسريع البناءات التالية.
 
-الـAPK الناتج للتثبيت التجريبي على Android 6.0+ (minSdk 23).
+نسخ البناء المثبَّتة في `buildozer.spec` (تغييرها قد يعيد أخطاء الترجمة):
+
+* Python لـAndroid: `3.13.5` (الافتراضي 3.14 أقدم من دعم Kivy 2.3.1).
+* `python-bidi==0.4.2`: آخر إصدار بايثون خالص؛ 0.6.x إضافة Rust لا تُبنى هنا.
+* `android.ndk = 28c` مع `android.ndk_api = 24`: رؤوس bionic لا تعرّف
+  `preadv` لهدف API 23، وملف `AndroidManifest` يبقى `minSdk 23` عبر
+  `--allow-minsdk-ndkapi-mismatch`.
+* `p4a.commit = d2ee8c5`: يمنع تلف pip داخل venv البناء.
+
+الـAPK الناتج للتثبيت التجريبي على Android 6.0+ (minSdk 23)، ومقاسه نحو 48MB
+لأنه يضم معماريتَي `arm64-v8a` و`armeabi-v7a`.
 
 ---
 
