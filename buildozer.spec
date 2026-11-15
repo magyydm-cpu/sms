@@ -50,3 +50,8 @@ android.permissions = android.permission.INTERNET,android.permission.POST_NOTIFI
 [buildozer]
 log_level = 2
 warn_on_root = 1
+# The p4a release on PyPI leaves a mixed pip inside its build venv and then
+# "pip install -U pip" fails with ImportError: open_rich_spinner. Commit d2ee8c5
+# (kivy/python-for-android#3360) clears the venv instead of self-upgrading pip.
+p4a.branch = develop
+p4a.commit = d2ee8c5
