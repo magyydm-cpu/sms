@@ -17,7 +17,10 @@ version = 1.0.0
 
 # KivyMD is a pure Python package, the two Arabic text helpers are pure Python as
 # well, so python-for-android installs them through pip.
-requirements = python3,kivy==2.3.1,kivymd==1.2.0,arabic-reshaper==3.0.0,python-bidi==0.6.6
+# Python is pinned to the newest release Kivy 2.3.1 supports (its default is
+# 3.14, which Kivy 2.3.1 predates). python-bidi is pinned to its last pure-Python
+# release: 0.6.x is a Rust extension that cannot be cross-built for Android here.
+requirements = python3==3.13.5,hostpython3==3.13.5,kivy==2.3.1,kivymd==1.2.0,arabic-reshaper==3.0.0,python-bidi==0.4.2
 
 orientation = portrait
 fullscreen = 0
