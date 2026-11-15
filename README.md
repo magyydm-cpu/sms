@@ -190,6 +190,9 @@ buildozer -v android debug
 الـAPK الناتج للتثبيت التجريبي على Android 6.0+ (minSdk 23)، ومقاسه نحو 48MB
 لأنه يضم معماريتَي `arm64-v8a` و`armeabi-v7a`.
 
+لتثبيت الـAPK على هاتف واختبار الشاشات السبع وRTL وإدخال العربية خطوة بخطوة،
+اتبع [docs/TEST_ANDROID_AR.md](docs/TEST_ANDROID_AR.md).
+
 ---
 
 ## قرارات مهمة
