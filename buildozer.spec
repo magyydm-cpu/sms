@@ -27,6 +27,9 @@ requirements = python3==3.13.5,hostpython3==3.13.5,kivy==2.3.1,kivymd==1.2.0,ara
 # (kivy/python-for-android#3360) clears the venv instead of self-upgrading pip.
 p4a.branch = develop
 p4a.commit = d2ee8c5
+# The manifest keeps minSdk 23 while the NDK target is API 24 (see android.ndk_api),
+# which p4a only allows when this official flag is passed to the packaging step.
+p4a.extra_args = --allow-minsdk-ndkapi-mismatch
 
 orientation = portrait
 fullscreen = 0
