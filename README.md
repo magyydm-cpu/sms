@@ -193,6 +193,13 @@ buildozer -v android debug
 لتثبيت الـAPK على هاتف واختبار الشاشات السبع وRTL وإدخال العربية خطوة بخطوة،
 اتبع [docs/TEST_ANDROID_AR.md](docs/TEST_ANDROID_AR.md).
 
+### تحميل جاهز (رابط ثابت)
+
+آخر نسخة debug منشورة كـRelease:
+[`v1.0.0-debug`](https://github.com/magyydm-cpu/sms/releases/tag/v1.0.0-debug) — الملف
+[`debtmanagerpro-1.0.0-arm64-v8a_armeabi-v7a-debug.apk`](https://github.com/magyydm-cpu/sms/releases/download/v1.0.0-debug/debtmanagerpro-1.0.0-arm64-v8a_armeabi-v7a-debug.apk)
+(‏SHA256 `653a503c3ed316d810d391c79af981162b25a6c4eea2ee1717ca156333cf06c9`).
+
 ---
 
 ## قرارات مهمة
