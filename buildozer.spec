@@ -39,9 +39,9 @@ android.minapi = 23
 # source needs them, so the NDK target is API 24 while the manifest keeps
 # minSdk 23 (the app still installs on Android 6.0).
 android.ndk_api = 24
-# NDK r28c ships clang 19 and breaks the python3 recipe; 25b is the release
-# python-for-android is tested with.
-android.ndk = 25b
+# The p4a commit pinned above expects the NDK layout of r28c (the release its
+# own docs recommend).
+android.ndk = 28c
 android.archs = arm64-v8a, armeabi-v7a
 android.accept_sdk_license = True
 android.private_storage = True
